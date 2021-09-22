@@ -2,16 +2,18 @@
   <nav>
     <section class="navbar-logo">
       <ul>
-        <li>{{ title }}</li>
+        <li>
+          <router-link to="/">{{ title }}</router-link>
+        </li>
       </ul>
     </section>
     <section class="navbar-links">
       <ul>
         <li>
-          <a href="#">Card Editor</a>
+          <router-link to="/editor">Card Editor</router-link>
         </li>
         <li>
-          <a href="#">Card Collection</a>
+          <router-link to="/collection">Card Collection</router-link>
         </li>
       </ul>
     </section>
@@ -44,6 +46,7 @@
     display: flex;
     width: 100%;
     height: 50px;
+    border-bottom: 2px solid black;
   }
 
   a {
@@ -58,7 +61,7 @@
   .navbar-logo {
     display: flex;
     justify-content: center;
-    width: 15%;
+    width: 20%;
     border-right: 2px solid black;
   }
 
@@ -73,7 +76,7 @@
 
   .navbar-links {
     display: flex;
-    width: 85%;
+    width: 80%;
   }
 
   .navbar-links > ul {
