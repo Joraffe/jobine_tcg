@@ -18,6 +18,7 @@
   "homepage": "https://github.com/Joraffe/raid_planner#readme",
   "devDependencies": {
     "@vue/compiler-sfc": "^3.2.11",
+    "copy-webpack-plugin": "^9.0.1",
     "css-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.1",
     "url-loader": "^4.1.1",
