@@ -8,6 +8,8 @@ import (
 // AppRouter is the router responsible for serving "/"
 // or delegating to the appropriate sub router
 type AppRouter struct {
+	Services      *Services
+	APIRouter     *APIRouter
   StaticRouter  *StaticRouter
 }
 
@@ -18,6 +20,8 @@ func (r *AppRouter) ServeHTTP(res http.ResponseWriter, req *http.Request) {
 	switch head {
 	case "static":
 		r.StaticRouter.ServeHTTP(res, req)
+	case "api":
+		r.APIRouter.ServeHTTP(res, req)
 	default:
 		http.ServeFile(res, req, "dist/static/index.html")
 	}
@@ -28,6 +32,10 @@ func (r *AppRouter) ServeHTTP(res http.ResponseWriter, req *http.Request) {
 // routers with access to the router services
 func NewRouter() *AppRouter {
   router := new(AppRouter)
+	routerServices := NewRouterServices()
+
+	router.Services = routerServices
+	router.APIRouter = NewAPIRouter(routerServices)
   router.StaticRouter = NewStaticRouter()
 
   return router

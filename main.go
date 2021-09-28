@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/Joraffe/raid_planner/server/routes"
+	"github.com/Joraffe/jobine_tcg/server/routes"
 )
 
 
